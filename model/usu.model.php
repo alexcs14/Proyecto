@@ -1,7 +1,6 @@
 <?php
 
 class UsuModel{
-
   private $pdo;
 
   public function __CONSTRUCT(){
@@ -13,10 +12,10 @@ class UsuModel{
       }
     }
 
-  function create_vol($data){
+  public function create_vol($data){
   try {
     $sql="INSERT INTO usuario VALUES ('',1,?,?,?,?,?,?,?,?,?,?,?,?)";
-    $query=$pdo->prepare($sql);
+    $query=$this->pdo->prepare($sql);
     $query->execute(array($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data[9],$data[10],$data[11],$data[12],$data[13]));
 
     $msn = "Guardado con exito";

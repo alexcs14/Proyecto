@@ -17,7 +17,7 @@ class UsuController{
     require_once "views/assets/include/footer.php";
   }
 
-  public function createUsV($data){
+  public function create(){
     $data=$_POST["data"];
     $result=$this->model->create_vol($data);
     header("location: index.php?c=usu&msn=$result");

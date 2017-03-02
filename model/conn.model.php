@@ -12,11 +12,10 @@ class DataBase{
 
       try {
 
-        self::$conn=new PDO('mysql:host='.self::$dbhost'.;dbname='.self::$dbname.'',self::$dbuser,self::$dbpass);
-        self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        self::$db_conn->exec("SET CHARACTER SET utf8");
+        self::$conn=new PDO('mysql:host='.self::$dbhost.';dbname='.self::$dbname,self::$dbuser,self::$dbpass);
+        self::$conn->exec("SET CHARACTER SET utf8");
 
-      } catch (Exception $e) {
+      } catch (PDOException $e) {
         echo $e->getMessage();
       }
       return self::$conn;

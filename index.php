@@ -15,6 +15,7 @@ if (isset($_REQUEST["a"])){
 }
 
 if (isset($_GET["msn"])){
-  echo "<script>alert('".$_GET["msn"]."')</script>"
+  echo "<script>alert('".$_GET["msn"]."')</script>";
 }
+include_once "views/donacion.php";
 ?>

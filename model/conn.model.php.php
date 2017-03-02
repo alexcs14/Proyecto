@@ -6,7 +6,7 @@ class ConexionDB{
   private static $dbuser="root";
   private static $conn=null;
 
-  public static function AbrirDB(){
+  public static function starDB(){
     if (self::$conn=null){
 
       try {
@@ -14,7 +14,7 @@ class ConexionDB{
         self::$conn=new PDO('mysql:host='.self::$dbhost'.;dbname='.self::$dbname.'',self::$dbuser,self::$dbpass);
         self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      } catch (PDOException $e) {
+      } catch (Exception $e) {
         echo $e->getMessage();
       }
       return self::$conn;

@@ -9,7 +9,7 @@ if (isset($_REQUEST["a"])){
 }else{
   $controller = "main";
   require_once "controller/$controller.controller.php";
-  ucwords($controller)."Controller";
+  $controller = ucwords($controller)."Controller";
   $controller = new $controller;
   $controller -> index();
 }
@@ -17,5 +17,4 @@ if (isset($_REQUEST["a"])){
 if (isset($_GET["msn"])){
   echo "<script>alert('".$_GET["msn"]."')</script>";
 }
-include_once "views/donacion.php";
 ?>

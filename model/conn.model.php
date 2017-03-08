@@ -1,27 +1,27 @@
 <?php
-class DataBase{
+class ConexionDB{
   private static $dbhost="localhost";
   private static $dbname="proyecto_grado";
   private static $dbuser="root";
-  private static $dbpass="";
-  private static $conn=null;
+  private static $db_pass = "";
+ private static $conn=null;
 
-  public static function connect(){
-    if (self::$conn==null){
+  public static function AbrirBD(){
+    if (null== self::$conn){
 
       try {
 
-        self::$conn=new PDO('mysql:host='.self::$dbhost.';dbname='.self::$dbname,self::$dbuser,self::$dbpass);
-        self::$conn->exec("SET CHARACTER SET utf8");
+        self::$conn=new PDO('mysql:host='.self::$dbhost.";"."dbname=".self::$dbname, self::$dbuser, self::$db_pass);
+         self::$conn-> exec("SET CHARACTER SET utf8");
         self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      } catch (PDOException $e) {
-        echo $e->getMessage();
+      } catch(PDOException $e) {
+      die($e->getMessage());
       }
       return self::$conn;
     }
   }
-  public static function disconnect(){
+  public static function CerrarBD(){
     self::$conn=null;
   }
 }

@@ -1,6 +1,6 @@
 <?php
- require_once("../model/conn.model.php");
- require_once("../model/donacion.class.php");
+ require_once("model/conn.model.php");
+ require_once("model/donacion.class.php");
 
 $action=$_REQUES["action"];
 
@@ -17,28 +17,26 @@ switch ($accion){
     echo "Debes llanar todos los campos para continuar,Por favor verificarlos. ";
   }else{
     try {
-      Gestionar_donacion::Crear( $don_cod,$don_usu_cod  $don_td_cod, $don_fecha_res, $don_fecha_cita, $don_lugar);
     }catch(Exception $e){
+      Gestionar_donacion::Crear( $don_cod,$don_usu_cod,$don_td_cod, $don_fecha_res, $don_fecha_cita, $don_lugar);
       echo $e;
     }
   }
   break;
-  case 'B'
 
 
-  break;
+
+
   case 'C':
-  $don_cod=$_POST["codigo"];
-  $don_usu_cod=$_POST["Codigo de suario"];
   $don_td_cod=$_POST["Tipo de donacion"];
   $don_fecha_res=$_POST["Fecha de reserva"];
   $don_fecha_cita=$_POST["Fecha de citacion"];
   $don_lugar=$_POST["lugar de citacion"];
     try {
-      Gestionar_donacion::Modificar($don_cod ,$don_usu_cod,$don_td_cod ,$don_fecha_res ,$don_fecha_cita , $don_lugar);
+      Gestionar_donacion::Modificar($don_td_cod ,$don_fecha_res ,$don_fecha_cita , $don_lugar);
     } catch (Exception $e) {
       echo $e;
-    }s
+    }
   break;
   case 'D':
   // 	echo "
@@ -58,5 +56,5 @@ switch ($accion){
 
   break;
 }
-header("location: ../views/module/sdonacion.php");
+header("location: views/module/donacion.php");
  ?>

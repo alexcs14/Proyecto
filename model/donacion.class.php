@@ -13,7 +13,7 @@ class Gestionar_donacion{
   function Consultar(){
     $pdo= ConexionDB::AbrirBD();
     $pdo-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql= "SELECT * FROM donacion ORDER BY don_cod";
+    $sql= "SELECT * FROM donacion ";
     $query= $pdo->prepare($sql);
     $query->execute();
 
